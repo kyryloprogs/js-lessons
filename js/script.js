@@ -1,26 +1,6 @@
 "use strict";
 
-// let number = 5;
-// const leftBorderWidth = 1;
 
-
-// number = 10;
-// console.log(number);
-    
-
-// const obj = {
-//     a: 50
-// };
-
-// obj.a = 10;
-
-// console.log(obj);
-
-// console.log(name);
-
-// var name = 'Ivan';
-
-// {
 // }
 
 // console.log(result);
@@ -64,25 +44,39 @@ let doc = 1;
 
 
 
-let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
-
-
-document.write();
+let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
 
 const personalMovieDB = {
-    count: 0,
+    count: numberOfFilms,
     movies: {},
     actors: {},
     genres: [],
     privat: false
+};
+
+
+// personalMovieDB.count = ;
+
+
+for (let i = 0; i < 2; i++) {
+    const   movieName = prompt("Название фильма", ""),
+            movieScore = prompt("Оценка фильма");
+    if (movieName != null && movieScore != null && movieName != '' && movieScore != '' && movieName.length < 50) {
+        personalMovieDB.movies[movieName] = movieScore;
+    }
+    else {
+        i--;
+    }    
 }
-
-
-personalMovieDB.count = numberOfFilms;
-
-let movieName = prompt("Название фильма");
-let movieScore = prompt("Оценка фильма");
-personalMovieDB.movies[`${movieName}`] = movieScore;
-
 console.log(personalMovieDB);
+
+if (personalMovieDB.count < 10) {
+    alert("Вы мало фильмов");
+} else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+    alert("Вы средне фильмов");
+} else if (personalMovieDB.count > 30) {
+    alert("Вы много фильмов");
+} else {
+    alert("Ошибка");
+}
